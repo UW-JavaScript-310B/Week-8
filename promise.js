@@ -1,14 +1,32 @@
-let myPromise = new Promise(function(resolve, reject) {
-  setTimeout(function() {
-    resolve();
+// myPromise //////////////////////////////////////////////////////////////////
+// Basic promise example.
+// Generates a random number between 0 and 1:
+//   if number is greater than .5, resolves;
+//   rejects otherwise.
+let myPromise = new Promise((resolve, reject) => {
+  const randNum = Math.random();
+  setTimeout(() => {
+    if (randNum > ".5") {
+      resolve(randNum);
+    } else {
+      reject(randNum);
+    }
   }, 1000);
 });
 
-myPromise
-  .then(function() {
-    return 99;
-  })
-  .then(function(number) {
-    console.log(number);
-  });
+///////////////////////////////////////////////////////////////////////////////
+
+// Occurs on resolve() of myPromise.
+myPromise.then((number) => {
+  console.log(`success: number is ${number}`);
+  return 99;
+})
+// Catches, occurring on reject() of myPromise.
+.catch((number) => {
+  console.log(`fail: number is ${number}`);
+})
+// Occurs regardless of reject() or resolve().
+.then((number) => {
+  console.log("complete");
+});
 
