@@ -33,17 +33,21 @@ formEl.addEventListener('submit', function(e) {
   .then(function(responseJson) {
     console.log(responseJson);
 
-    let book = responseJson.results;
-    console.log(book);
 
-    // const bookTitle = book.book_details.title;
-    // document.getElementById('book-title').innerText = bookTitle;
+    let books = responseJson.results[0].book_details[0];
+    console.log(books);
+  
+    const bookTitle = books.title;
+    console.log(bookTitle);
+    document.getElementById('book-title').innerText = bookTitle;
 
-    // const author = book.author;
-    // document.getElementById('book-author').innerText = book.author;
+    const author = books.author;
+    console.log(author);
+    document.getElementById('book-author').innerText = `Author: ${author}`;
 
-    // const descr = book.description;
-    // document.getElementById('book-descr').innerText = book.descr;
+    const descr = books.description;
+    console.log(descr);
+    document.getElementById('book-descr').innerText = `Description: ${descr}`;
  
     
   });
