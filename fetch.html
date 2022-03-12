@@ -6,14 +6,23 @@
   <link rel="stylesheet" href="fetch.css">
 </head>
 <body>
-  <div class="container">
-    <h1 id="article-title" class="my-4"></h1>
-    <img id="article-img" />
-    <p id="article-snippet" class="my-3"></p>
-    <p><a id="article-link">Full Article</a></p>
+  <form id="best-books-form">
+  <div class="container" style="margin-top: 50px;">
+    <label for="book-date">Please enter a date for the books you are looking for:</label>
+    <input type="date" id="book-date" name="book-date"
+       value="required">
+       <input id="submit" class="btn btn-primary" type="submit" value="Get Books" />
+  </div>
+  <div class="container" id="searchResults">
+    <h1 id="book-title" class="my-4"></h1>
+    <h4 id="book-author" class="my-2"></h4>
+
+    <p id="book-description" class="my-2"></p>
+    <img id="book-img"/>
   </div>
 
-  <script src="fetch-api-key.js"></script>
+  <!-- <script src="fetch-api-key.js"></script> -->
   <script src="fetch.js"></script>
+  </form>
 </body>
 </html>
