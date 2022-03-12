@@ -1,3 +1,13 @@
 img {
   max-width: 300px;
 }
+
+#searchResults.error {
+  color: red; 
+  font-size: large;
+}
+
+#searchResults {
+  color: black;
+  font-size: medium;
+}
