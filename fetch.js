@@ -1,8 +1,8 @@
 // create api-key.js file with const API_KEY="your_api_key" in this same directory to use
 const BASE_URL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json';
 const API_KEY = 'VeXyZSUr0HSMfzzwXDlnMHrzX3sCffSq'
-const dateInput = 'tech'
-const url = `${BASE_URL}?q=${dateInput}&api-key=${API_KEY}`;
+const dataInput = 'tech'
+const url = `${BASE_URL}?q=${dataInput}&api-key=${API_KEY}`;
 
 fetch(url)
   .then(function(data) {
