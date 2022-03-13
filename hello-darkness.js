@@ -1,6 +1,6 @@
 const bodyEl = document.getElementById('body');
 let colorVal = 255;
-const interval = 500
+const interval = 500;
 
 const changeColor = setInterval(() => {
     if (colorVal > 0) {
