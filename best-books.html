@@ -6,16 +6,36 @@
   <meta name="viewpot" content="width=device-width, initial-scale=1.0">
   <title>Best Books</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="./best-books.css">
 </head>
 <body>
   <div class="container">
-    <div class="row my-4">
-      <div class="col-12">
-        <h1>Best Books</h1>
-      </div>
-    </div>
     <div class="row">
-      <div class="col-md-4">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">SearchTimes</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">Books</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Movies</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Articles</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-6">
+        <h1>Because great works last forever</h1>
+        <h4>Search the New York Times bestsellers lists for great books from the past 100 years.</h4>
         <form id="best-books-form">
           <div class="form-group mb-2">
             <label for="year">Year:</label>
@@ -36,7 +56,7 @@
               type="text" 
               placeholder="03"
               pattern="\d{2}"
-               />
+                />
           </div>
           <div class="form-group mb-2">
             <label for="date">Date:</label>
@@ -54,13 +74,29 @@
           </div>
         </form>
       </div>
-      <div class="col-md-7 offset-md-1" id="books-container">
-        <h2>Results</h2>
+      <div id="book-covers" class="col-md-6 d-lg-inline d-none">
+        <img src="./lincoln.jpg" alt="The Lincoln Highway" />
+        <img src="./the-four-winds.jpg" alt="The Four Winds" />
+        <img src="./dune.jpg" alt="Dune" />
+        <img src="./a-tree-grows-in-brooklyn.jpg" alt="A Tree Grows in Brooklyn" />
+        <img src="./the-joy-luck-club.jpg" alt="The Joy Luck Club" />
+        <img src="./a-wrinkle-in-time.jpg" alt="A Wrinkle in Time" />
+        <img src="./the-stranger.jpg" alt="The Stranger" />
+        <img src="./harry-potter-and-the-sorcerers-stone.jpg" alt="Harry Potter and the Sorcerer's Stone" />
+        <img src="./1984.jpg" alt="1984" />
+        <img src="./the-story-of-my-life.jpg" alt="The Story of My Life" />
+        <img src="./the-great-gatsby.jpg" alt="The Great Gatsby" />
+        <img src="./the-catcher-in-the-rye.jpg" alt="The Catcher in the Rye" />
       </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        More
       </div>
+    </div>
   </div>
 
-  <script src="api-key.js"></script>
-  <script src="best-books.js"></script>
+  <script src="./api-key.js"></script>
+  <script src="./best-books.js"></script>
 </body>
 </html>

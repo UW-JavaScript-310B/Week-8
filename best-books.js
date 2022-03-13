@@ -7,29 +7,32 @@ const container = document.getElementById('books-container');
 const BASE_URL = `https://api.nytimes.com/svc/books/v3/lists/`;
 const key = `?&api-key=${API_KEY}`;
 
-formEl.addEventListener('submit', function(e) {
-  e.preventDefault();
-
-  const year = yearEl.value;
-  const month = monthEl.value;
-  const date = dateEl.value;
-
-  fetch(`${BASE_URL}${year}-${month}-${date}/hardcover-fiction.json${key}`)
+fetch(`${BASE_URL}${year}-${month}-${date}/hardcover-fiction.json${key}`)
   .then(data => data.json())
   .then(response => {
     console.log(response);
     response.results.books.forEach(book => {
       let title = document.createElement('p');
-      title.innerText = `Title: ${book.title.toLowerCase()}`;
+
+      title.innerText = `Title: ${titleCase(book.title)}`;
       container.appendChild(title);
 
       let author = document.createElement('p');
-      author.innerText = `Author: ${book.author.toLowerCase()}`;
+      author.innerText = `Author: ${titleCase(book.author)}`;
       container.appendChild(author);
 
       let description = document.createElement('p');
-      description.innerText = `Description: ${book.description.toLowerCase()}`;
+      description.innerText = `Description: ${sentenceCase(book.description)}`;
       container.appendChild(description);
     })
   })
 });
+
+function titleCase(str) {
+  return (str.toLowerCase().split(' ')).map(word => word[0].toUpperCase() + word.slice(1)).join(' ');
+}
+
+function sentenceCase(str) {
+  str = str.toLowerCase();
+  return str[0].toUpperCase() + str.slice(1);
+}

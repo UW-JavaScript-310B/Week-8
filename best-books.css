@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Source+Sans+Pro&display=swap');
+
+div:before { 
+  content: none;
+}
+div:after {
+  content: none;
+}
+
+/* div {
+  border: 1px solid red;
+} */
+body {
+  background-color: rgb(255, 250, 242);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {
+  margin: 20px 0;
+}
+
+h1 {
+  margin-top: 10px;
+  font-size: 3.2rem;
+  font-family: 'Roboto Slab', 'Times New Roman', serif;
+}
+
+h4 {
+  color:rgb(100, 100, 100);
+  font-size: 1.2rem;
+  margin-bottom: 60px;
+  font-weight: 100;
+}
+
+#book-covers {
+  justify-content: space-between;
+}
+
+#book-covers img {
+  width: 20%;
+  box-shadow: 0 0 10px 1px rgb(165, 165, 165);
+  margin: 5px;
+}
+
+#book-covers :first-child {
+  /* transform: rotate(-10deg); */
+}
+
+#book-covers :nth-child(2) {
+  /* transform: rotate(0); */
+  /* z-index: 10; */
+  /* position: relative;
+  top: -13px; */
+}
