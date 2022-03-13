@@ -23,13 +23,17 @@ formEl.addEventListener('submit', function (e) {
 
   // console.log(date);
   // console.log(url);
-
+// debugger
 //remove bestseller books from a prior request  -- doesn't work
- let containerPrior = document.querySelectorAll("#books-container");
+//const containerPrior = document.getElementById('books-container');
+const containerPrior = document.querySelector('#books-container');
   while (containerPrior.firstChild) {
     containerPrior.removeChild(containerPrior.firstChild);
   }
+  
 
+console.log(containerPrior);
+console.log(containerPrior.children)
 
   // Fetch bestselling books for date and add top 5 to page
   fetch(url)
@@ -61,7 +65,7 @@ formEl.addEventListener('submit', function (e) {
         // console.log(container);
 
         const bestsellers = document.createElement("div");
-        bestsellers.setAttribute("class", "prior");
+        // bestsellers.setAttribute("class", "prior");
 
         bestsellers.innerHTML =
           `<h2>${bookTitle}</h2>
