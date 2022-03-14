@@ -14,17 +14,27 @@ const API_KEY ='mGqS9lCf3m3v6lc7FKR9rLCBcHxAMo0f'
 
 //const url = `${BASE_URL}?author=Stephen+King&api-key=${API_KEY}`;
 
-const url = `${BASE_URL}lists/current/hardcover-fiction.json?api-key=${API_KEY}`;
+//const url = `${BASE_URL}lists/current/hardcover-fiction.json?api-key=${API_KEY}`;
 
 
 formEl.addEventListener('submit', function(e) {
   e.preventDefault();
 
   const year = yearEl.value;
+
+  console.log(year)
+
   const month = monthEl.value;
+
+  console.log(month)
+
   const date = dateEl.value;
 
+  console.log(date)
+
   // Fetch bestselling books for date and add top 5 to page
+
+  const url = `${BASE_URL}lists/${year}-${month}-${date}/hardcover-fiction.json?api-key=${API_KEY}`;
 
   //console.log('submit button clicked')
 
