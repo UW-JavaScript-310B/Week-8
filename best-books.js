@@ -52,6 +52,30 @@ formEl.addEventListener('submit', function(e) {
         let book = responseJson.results.books[0].title
         console.log(book);
 
+        let author_ = responseJson.results.books[0].author
+        console.log(author_);
+
+        let description = responseJson.results.books[0].description
+        console.log(description);
+
+        let book_img = responseJson.results.books[0].book_image
+
+        let book_link = responseJson.results.books[0].amazon_product_url
+
+        //console.log(description);
+
+        //const mainHeadline = article.headline.main;
+        document.getElementById('book-title').innerText = book;
+        document.getElementById('book-author').innerText = author_;
+        document.getElementById('book-snippet').innerText = description;
+        //document.getElementById('book-link').innerText = book_link;
+        document.getElementById('book-link').href=book_link
+
+        if (book_img.length > 0) {
+          const imgUrl = book_img;
+          document.getElementById('book-img').src = imgUrl;
+        }
+
         //
         // const mainHeadline = article.headline.main;
         // document.getElementById('article-title').innerText = mainHeadline;
