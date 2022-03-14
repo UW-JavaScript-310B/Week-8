@@ -71,6 +71,8 @@ formEl.addEventListener('submit', function(e) {
           h2Elem.innerText=author_
           pElem.innerText=description
           aElem.href=book_link
+          aElem.id="book-link"
+          aElem.innerText="Amazon Link"
 
           divEl.append(h1Elem)
           divEl.append(h2Elem)
