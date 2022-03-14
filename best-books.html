@@ -7,12 +7,13 @@
   <title>Best Books</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="./best-books.css">
+  <script src="https://kit.fontawesome.com/9bfbb90b34.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="container">
     <div class="row">
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="#">SearchTimes</a>
+      <nav class="navbar navbar-expand-md navbar-light">
+        <a class="navbar-brand" href="#"><img src="./searchtimes-logo.png" width="240" height="49" alt="SearchTimes"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -30,51 +31,63 @@
         </div>
       </nav>
     </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-12 col-lg-6">
+    <div class="row pt-2 pb-5">
+      <div class="col-12 col-lg-5 offset-1">
         <h1>Because great works last forever</h1>
         <h4>Search the New York Times bestsellers lists for great books from the past 100 years.</h4>
-        <form id="best-books-form">
-          <div class="form-group mb-2">
-            <label for="year">Year:</label>
-            <input 
-              id="year"
-              name="year" 
-              class="form-control" 
-              type="text" 
-              pattern="\d{4}" 
-              placeholder="2019" />
+        <form class="col-12" id="best-books-form">
+          <div class="row form-group mb-2">
+            <div class="col-2 justify-content-center align-self-center">
+              <label for="year">Year</label>
+            </div>
+            <div class="col-8">
+              <input 
+                id="year"
+                name="year" 
+                class="form-control" 
+                type="text" 
+                pattern="\d{4}" 
+                placeholder="2019" />
+            </div>
           </div>
-          <div class="form-group mb-2">
-            <label for="month">Month:</label>
-            <input 
-              id="month" 
-              name="month" 
-              class="form-control" 
-              type="text" 
-              placeholder="03"
-              pattern="\d{2}"
+          <div class="row form-group mb-2">
+            <div class="col-2 justify-content-center align-self-center">
+              <label for="month">Month</label>
+            </div>
+            <div class="col-8">
+              <input 
+                id="month" 
+                name="month" 
+                class="form-control" 
+                type="text" 
+                placeholder="03"
+                pattern="\d{2}"
+                  />
+            </div>
+          </div>
+          <div class="row form-group mb-2">
+            <div class="col-2 justify-content-center align-self-center">
+              <label for="date">Date</label>
+            </div>
+            <div class="col-8">
+              <input 
+                id="date"
+                name="date" 
+                class="form-control" 
+                type="text" 
+                placeholder="11"
+                pattern="\d{2}"
                 />
+            </div>
           </div>
-          <div class="form-group mb-2">
-            <label for="date">Date:</label>
-            <input 
-              id="date"
-              name="date" 
-              class="form-control" 
-              type="text" 
-              placeholder="11"
-              pattern="\d{2}"
-              />
-          </div>
-          <div class="form-group mb-2">
-            <input id="submit" class="btn btn-primary" type="submit" value="Get Books" />
+          <div class="row form-group">
+            <div class="col-8 offset-2">
+              <input id="submit" class="btn btn-primary btn-lg btn-block" type="submit" value="Find Great Books" />
+            </div>
           </div>
         </form>
       </div>
-      <div id="book-covers" class="col-md-6 d-lg-inline d-none">
+      <div id="book-covers" class="col-md-5">
         <img src="./lincoln.jpg" alt="The Lincoln Highway" />
         <img src="./the-four-winds.jpg" alt="The Four Winds" />
         <img src="./dune.jpg" alt="Dune" />
@@ -89,9 +102,27 @@
         <img src="./the-catcher-in-the-rye.jpg" alt="The Catcher in the Rye" />
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-6">
-        More
+    <div id="below-fold" class="row">
+      <div class="col-md-12">
+        <h2 class="mt-5 mb-5">What people are saying</h2>
+        <div class="row">
+          <div class="col-4 review">
+            <p class="mt-3 mb-3">"Lorem ipsum dolor sit amet consectetur adipisicing elit."</p>
+
+          </div>
+          <div class="col-4 review">
+            <p class="mt-3 mb-3">Voluptatem ipsam modi incidunt sapiente laborum consequatur dolore eaque ut alias magnam.</p>
+          </div>
+          <div class="col-4 review">
+            <p class="mt-3 mb-3">Lorem eum reiciendis incidunt veniam nostrum porro corrupti rerum enim vero.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <h2 class="mt-5 mb-5">Media coverage</h2>
+        <div class="row">
+          <p>Media icons go here...</p>
+        </div>
       </div>
     </div>
   </div>
