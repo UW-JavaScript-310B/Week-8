@@ -5,7 +5,7 @@ const BASE_URL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json';
 
 const API_KEY ='FUTwmcGmh7l3K2OQiFAnmMTaSnuqIRjY'
 
-const url = `${BASE_URL}?q=tech&api-key=${API_KEY}`;
+const url = `${BASE_URL}?q=fiction&api-key=${API_KEY}`;
 
 fetch(url)
   .then(function(data) {
