@@ -16,10 +16,9 @@ formEl.addEventListener('submit', function (e) {
   const day = dayEl.value;
   const list = 'hardcover-fiction';
   const date = `${year}-${month}-${day}`;
-  const url = `${BASE_URL2}?bestsellers-date=${date}&list=${list}&api-key=${API_KEY}`;
+  const url = `${BASE_URL2}?published-date=${date}&list=${list}&api-key=${API_KEY}`;
 
-//remove bestseller books from a prior request  -- doesn't work
-//const containerPrior = document.getElementById('books-container');
+//remove bestseller books from a prior request
 const containerPrior = document.querySelector('#books-container');
   while (containerPrior.firstChild) {
     containerPrior.removeChild(containerPrior.firstChild);
@@ -56,7 +55,6 @@ const containerPrior = document.querySelector('#books-container');
         // console.log(container);
 
         const bestsellers = document.createElement("div");
-        // bestsellers.setAttribute("class", "prior");
 
         bestsellers.innerHTML =
           `<h2>${bookTitle}</h2>
