@@ -11,4 +11,8 @@ formEl.addEventListener('submit', function(e) {
   const date = dateEl.value;
 
   // Fetch bestselling books for date and add top 5 to page
+
+
+
+
 });
