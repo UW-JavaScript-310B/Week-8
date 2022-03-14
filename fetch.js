@@ -1,8 +1,9 @@
 // create api-key.js file with const API_KEY="your_api_key" in this same directory to use
 const BASE_URL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json';
-
-const url = `${BASE_URL}?q=tech&api-key=${API_KEY}`;
-
+const API_KEY = 'bYkPkhGjdTOBKzyAAiNEJ8yA5yDFJY1i';
+const formInput = 'tech';
+const url = `${BASE_URL}?q=${formInput}&api-key=${API_KEY}`;
+console.log(url);
 fetch(url)
   .then(function(data) {
     return data.json();
@@ -20,4 +21,13 @@ fetch(url)
       const imgUrl = `https://www.nytimes.com/${article.multimedia[0].url}`;
       document.getElementById('article-img').src = imgUrl;
     }
+
+    const byLine = article.byline.original;
+    document.getElementById('article-byline').innerText = byLine;
+    
+    const snippet = article.snippet;
+    document.getElementById('article-snippet').innerText = snippet;
+ 
+    const articleLink = article.web_url
+    document.getElementById('article-link').href = articleLink;
   });
