@@ -49,5 +49,10 @@ console.log(url);
 
     }
 
-  });
+  })
+
+  .catch(function () {
+    console.log(`No results found`);
+  })
+  
 });
