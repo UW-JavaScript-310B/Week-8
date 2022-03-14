@@ -4,39 +4,24 @@ const monthEl = document.getElementById('month');
 const dateEl = document.getElementById('date');
 
 
-//const BASE_URL = 'https://api.nytimes.com/svc/books/v3/lists.json';
-
 const BASE_URL = 'https://api.nytimes.com/svc/books/v3/';
 
 const API_KEY ='mGqS9lCf3m3v6lc7FKR9rLCBcHxAMo0f'
 
-//const url = `${BASE_URL}?q=fiction&api-key=${API_KEY}`;
-
-//const url = `${BASE_URL}?author=Stephen+King&api-key=${API_KEY}`;
-
-//const url = `${BASE_URL}lists/current/hardcover-fiction.json?api-key=${API_KEY}`;
-
-
 formEl.addEventListener('submit', function(e) {
   e.preventDefault();
 
-  const year = yearEl.value;
+  let divEl = document.getElementById('books-container');
 
-  console.log(year)
+  const year = yearEl.value;
 
   const month = monthEl.value;
 
-  console.log(month)
-
   const date = dateEl.value;
-
-  console.log(date)
 
   // Fetch bestselling books for date and add top 5 to page
 
   const url = `${BASE_URL}lists/${year}-${month}-${date}/hardcover-fiction.json?api-key=${API_KEY}`;
-
-  //console.log('submit button clicked')
 
   fetch(url)
       .then(function(data) {
@@ -46,47 +31,56 @@ formEl.addEventListener('submit', function(e) {
       .then(function(responseJson) {
         console.log(responseJson);
 
-        // let article = responseJson.response.docs[0];
-        // console.log(article);
+        //need to loop through the top five. id est, from element 0 to 4
+        //need to create the elements dynamically
 
-        let book = responseJson.results.books[0].title
-        console.log(book);
+        // let book = responseJson.results.books[0].title
+        // let author_ = responseJson.results.books[0].author
+        // let description = responseJson.results.books[0].description
+        // let book_img = responseJson.results.books[0].book_image
+        // let book_link = responseJson.results.books[0].amazon_product_url
+        // document.getElementById('book-title').innerText = book;
+        // document.getElementById('book-author').innerText = author_;
+        // document.getElementById('book-snippet').innerText = description;
+        // document.getElementById('book-link').href=book_link
+        // if (book_img.length > 0) {
+        //   const imgUrl = book_img;
+        //   document.getElementById('book-img').src = imgUrl;
+        // }
 
-        let author_ = responseJson.results.books[0].author
-        console.log(author_);
+        for (let counter=0; counter<5; counter++){
 
-        let description = responseJson.results.books[0].description
-        console.log(description);
+          let book = responseJson.results.books[counter].title
+          let author_ = responseJson.results.books[counter].author
+          let description = responseJson.results.books[counter].description
+          let book_img = responseJson.results.books[counter].book_image
+          let book_link = responseJson.results.books[counter].amazon_product_url
+          const h1Elem = document.createElement('h1')
+          const h2Elem = document.createElement('h2')
+          const imgElem = document.createElement('img')
+          const pElem = document.createElement('p')
+          const aElem = document.createElement('a')
 
-        let book_img = responseJson.results.books[0].book_image
+          if (book_img.length > 0) {
+            const imgUrl = book_img;
+            imgElem.src=imgUrl
+            //document.getElementById('book-img').src = imgUrl;
+          }
 
-        let book_link = responseJson.results.books[0].amazon_product_url
+          h1Elem.innerText=book
+          h2Elem.innerText=author_
+          pElem.innerText=description
+          aElem.href=book_link
 
-        //console.log(description);
+          divEl.append(h1Elem)
+          divEl.append(h2Elem)
+          divEl.append(imgElem)
+          divEl.append(pElem)
+          divEl.append(aElem)
 
-        //const mainHeadline = article.headline.main;
-        document.getElementById('book-title').innerText = book;
-        document.getElementById('book-author').innerText = author_;
-        document.getElementById('book-snippet').innerText = description;
-        //document.getElementById('book-link').innerText = book_link;
-        document.getElementById('book-link').href=book_link
 
-        if (book_img.length > 0) {
-          const imgUrl = book_img;
-          document.getElementById('book-img').src = imgUrl;
         }
 
-        //
-        // const mainHeadline = article.headline.main;
-        // document.getElementById('article-title').innerText = mainHeadline;
-        //
-        // if (article.multimedia.length > 0) {
-        //   const imgUrl = `https://www.nytimes.com/${article.multimedia[0].url}`;
-        //   document.getElementById('article-img').src = imgUrl;
-        // }
       });
-
-
-
 
 });
