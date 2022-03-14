@@ -2,15 +2,12 @@ const BASE_URL2 = ` https://api.nytimes.com/svc/books/v3/lists.json`;
 const BASE_URL = `https://api.nytimes.com/svc/books/v3/lists/{date}/{list}.json`;
 const API_KEY = 'rV4AuY2xlqcPAw0HIb7H8zkyQGSZpCsB';
 
-
-
 const formEl = document.getElementById('best-books-form');
 const yearEl = document.getElementById('year');
 const monthEl = document.getElementById('month');
 const dayEl = document.getElementById('day');
 
-
-
+//Upon submit fetch data from the API and populate the first five books on the page
 formEl.addEventListener('submit', function (e) {
   e.preventDefault();
 
@@ -21,9 +18,6 @@ formEl.addEventListener('submit', function (e) {
   const date = `${year}-${month}-${day}`;
   const url = `${BASE_URL2}?bestsellers-date=${date}&list=${list}&api-key=${API_KEY}`;
 
-  // console.log(date);
-  // console.log(url);
-// debugger
 //remove bestseller books from a prior request  -- doesn't work
 //const containerPrior = document.getElementById('books-container');
 const containerPrior = document.querySelector('#books-container');
@@ -31,15 +25,12 @@ const containerPrior = document.querySelector('#books-container');
     containerPrior.removeChild(containerPrior.firstChild);
   }
   
-
-console.log(containerPrior);
-console.log(containerPrior.children)
-
   // Fetch bestselling books for date and add top 5 to page
   fetch(url)
     .then(function (data) {
       return data.json();
     })
+
 //DEFINE THE ARRAY OF BOOKS THAT RETURNS FROM THE FETCH
     .then(function (responseJson) {
       console.log(responseJson);
