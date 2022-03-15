@@ -12,30 +12,24 @@
 <body>
   <div class="container">
     <div class="row">
-      <nav class="navbar navbar-expand-md navbar-light">
-        <a class="navbar-brand" href="#"><img src="./searchtimes-logo.png" width="240" height="49" alt="SearchTimes"></a>
+      <nav class="navbar navbar-expand-sm navbar-light">
+        <a class="navbar-brand" href="./best-books.html"><img src="./images/searchtimes-logo.png" width="240" height="49" alt="SearchTimes"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item"><a class="nav-link" href="#">Books</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Movies</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Articles</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="./best-books-about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://github.com/RyanOD">Contact</a></li>
           </ul>
         </div>
       </nav>
     </div>
     <div class="row pt-2 pb-5">
-      <div class="col-12 col-lg-5 offset-1">
-        <h1>Because great works last forever</h1>
-        <h4>Search the New York Times bestsellers lists for great books from the past 100 years.</h4>
-        <form class="col-12" id="best-books-form">
+      <div class="col-12 col-lg-6">
+        <h1>Because great literature lasts forever</h1>
+        <h4>Search historic New York Times bestsellers lists for your next great read.</h4>
+        <form class="col-12" id="best-books-form" action="./best-books-results.html">
           <div class="row form-group mb-2">
             <div class="col-2 justify-content-center align-self-center">
               <label for="year">Year</label>
@@ -47,7 +41,8 @@
                 class="form-control" 
                 type="text" 
                 pattern="\d{4}" 
-                placeholder="2019" />
+                placeholder="2019"
+              />
             </div>
           </div>
           <div class="row form-group mb-2">
@@ -62,7 +57,7 @@
                 type="text" 
                 placeholder="03"
                 pattern="\d{2}"
-                  />
+              />
             </div>
           </div>
           <div class="row form-group mb-2">
@@ -77,7 +72,36 @@
                 type="text" 
                 placeholder="11"
                 pattern="\d{2}"
-                />
+              />
+            </div>
+          </div>
+          <div class="row form-group mb-2">
+            <div class="col-2 justify-content-center align-self-center">
+              <label for="date">Format</label>
+            </div>
+            <div class="col-8">
+              <select 
+                id="format"
+                name="format" 
+                class="form-control">
+                <option value="combined-print-and-e-book">Combined Print & E-Book</option>
+                <option value="hardcover">Hardcover</option>
+                <option value="paperback">Paperback</option>
+              </select>
+            </div>
+          </div>
+          <div class="row form-group mb-2">
+            <div class="col-2 justify-content-center align-self-center">
+              <label for="date">Genre</label>
+            </div>
+            <div class="col-8">
+              <select 
+                id="genre"
+                name="genre" 
+                class="form-control">
+                <option value="fiction">Fiction</option>
+                <option value="nonfiction">Nonfiction</option>                
+              </select>
             </div>
           </div>
           <div class="row form-group">
@@ -87,47 +111,45 @@
           </div>
         </form>
       </div>
-      <div id="book-covers" class="col-md-5">
-        <img src="./lincoln.jpg" alt="The Lincoln Highway" />
-        <img src="./the-four-winds.jpg" alt="The Four Winds" />
-        <img src="./dune.jpg" alt="Dune" />
-        <img src="./a-tree-grows-in-brooklyn.jpg" alt="A Tree Grows in Brooklyn" />
-        <img src="./the-joy-luck-club.jpg" alt="The Joy Luck Club" />
-        <img src="./a-wrinkle-in-time.jpg" alt="A Wrinkle in Time" />
-        <img src="./the-stranger.jpg" alt="The Stranger" />
-        <img src="./harry-potter-and-the-sorcerers-stone.jpg" alt="Harry Potter and the Sorcerer's Stone" />
-        <img src="./1984.jpg" alt="1984" />
-        <img src="./the-story-of-my-life.jpg" alt="The Story of My Life" />
-        <img src="./the-great-gatsby.jpg" alt="The Great Gatsby" />
-        <img src="./the-catcher-in-the-rye.jpg" alt="The Catcher in the Rye" />
-      </div>
-    </div>
-    <div id="below-fold" class="row">
-      <div class="col-md-12">
-        <h2 class="mt-5 mb-5">What people are saying</h2>
-        <div class="row">
-          <div class="col-4 review">
-            <p class="mt-3 mb-3">"Lorem ipsum dolor sit amet consectetur adipisicing elit."</p>
-
-          </div>
-          <div class="col-4 review">
-            <p class="mt-3 mb-3">Voluptatem ipsam modi incidunt sapiente laborum consequatur dolore eaque ut alias magnam.</p>
-          </div>
-          <div class="col-4 review">
-            <p class="mt-3 mb-3">Lorem eum reiciendis incidunt veniam nostrum porro corrupti rerum enim vero.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-12">
-        <h2 class="mt-5 mb-5">Media coverage</h2>
-        <div class="row">
-          <p>Media icons go here...</p>
-        </div>
+      <div id="book-covers" class="col-md-12 col-lg-6 d-none d-lg-inline">
+        <img src="./images/lincoln.jpg" alt="The Lincoln Highway" />
+        <img src="./images/the-four-winds.jpg" alt="The Four Winds" />
+        <img src="./images/dune.jpg" alt="Dune" />
+        <img src="./images/a-tree-grows-in-brooklyn.jpg" alt="A Tree Grows in Brooklyn" />
+        <img src="./images/the-joy-luck-club.jpg" alt="The Joy Luck Club" />
+        <img src="./images/a-wrinkle-in-time.jpg" alt="A Wrinkle in Time" />
+        <img src="./images/the-stranger.jpg" alt="The Stranger" />
+        <img src="./images/harry-potter-and-the-sorcerers-stone.jpg" alt="Harry Potter and the Sorcerer's Stone" />
+        <img src="./images/1984.jpg" alt="1984" />
+        <img src="./images/the-story-of-my-life.jpg" alt="The Story of My Life" />
+        <img src="./images/the-great-gatsby.jpg" alt="The Great Gatsby" />
+        <img src="./images/the-catcher-in-the-rye.jpg" alt="The Catcher in the Rye" />
       </div>
     </div>
   </div>
+  <div class="container-fluid">
+    <div id="below-fold" class="row">
+      <div class="col-md-10 offset-1">
+        <h2 class="mt-5 mb-5">What people are saying</h2>
+        <div class="row">
+          <div class="col-12 col-md-4 review">
+           
+          </div>
+          <div class="col-12 col-md-4 review">
+            
+          </div>
+          <div class="col-12 col-md-4 review">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p>Copyright 2022 | All Rights Reserved</p>
+    </footer>
+  </div>
 
   <script src="./api-key.js"></script>
-  <script src="./best-books.js"></script>
+  <script src="./best-books-reviews.js"></script>
 </body>
 </html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE-edge">
+  <meta name="viewpot" content="width=device-width, initial-scale=1.0">
+  <title>Best Books</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="./best-books.css">
+  <script src="https://kit.fontawesome.com/9bfbb90b34.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <nav class="navbar navbar-expand-sm navbar-light">
+        <a class="navbar-brand" href="./best-books.html"><img src="./images/searchtimes-logo.png" width="240" height="49" alt="SearchTimes"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="./best-books-about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://github.com/RyanOD">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="row pt-2 pb-5">
+      <div class="col-12">
+        <h1>What is this site?</h1>
+        <p>A web development project focused on the use of external APIs. This project is part of the curriculum for CS310 at the University of Washington.</p>
+        <p>The goal of this project was to get comforable working with APIs. The base requiremets were to connect to the NYT books API and all users to submit a year, month, and date for which we would retrieve the best seller list.</p>
+        <p>For my submission, I chose to build out the application into a Bootstrap based website.</p>
+        <h3 class="mt-5">What APIs were used for this site?</h3>
+        <p>The following APIs were used to produce the content shown on this site. Thanks to those involved in their development.</p>
+        <h4><a href="https://developer.nytimes.com/">New York Times API</a></h4>
+        <p>Provided lists of best selling books for a specified date.</p>
+        <h4><a href="https://openlibrary.org/developers/api">Open Library API</a></h4>
+        <p>Utilizing the ISBN number provided by the NYT API, we can retrieve the book cover from the Open Library API.</p>
+        <h4><a href="https://randomuser.me/">Random User Generator API</a></h4>
+        <p>To add some user reviews, we are retrieving head shots and names from the Random User Generator API.</p>
+        <h4><a href="https://baconipsum.com/">Lorem Bacon API</a></h4>
+        <p>Rather than writing placeholder reviews or hard coding lorem ipsum, it's more fun to tap into the Lorem Bacon API for our text.</p>
+        <h3 class="mt-5">What web development tools were used for this site?</h3>
+        <p>The following web development tools were used to produce the content shown on this site. Thanks to those involved in their development.</p>
+        <p class="icons"><i class="fab fa-html5" title="HTML5"></i><i class="fab fa-css3" title="CSS3"></i><i class="fab fa-js" title="JavaScript"></i><i class="fab fa-bootstrap" title="Bootstrap"></i><i class="fab fa-font-awesome" title="Font Awesome"></i></p>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div id="below-fold" class="row">
+      <div class="col-md-10 offset-1">
+        <h2 class="mt-5 mb-5">What people are saying</h2>
+        <div class="row">
+          <div class="col-12 col-md-4 review">
+           
+          </div>
+          <div class="col-12 col-md-4 review">
+            
+          </div>
+          <div class="col-12 col-md-4 review">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p>Copyright 2022 | All Rights Reserved</p>
+    </footer>
+  </div>
+
+  <script src="./api-key.js"></script>
+  <script src="./best-books-reviews.js"></script>
+</body>
+</html>
