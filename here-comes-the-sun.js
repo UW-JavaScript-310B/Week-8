@@ -2,7 +2,7 @@
 let colorValue = 0;
 // Get <body> element
 const bodyEl = document.getElementsByTagName('body')[0];
-// Set time out for each frame. It will take 4s after showing 255 frames
+// Set timeout for each frame. It will take 4s after showing 255 frames
 const time = 4000/255;
 
 const theSun = () => {

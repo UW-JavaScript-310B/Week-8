@@ -39,7 +39,7 @@ formEl.addEventListener('submit', function(e) {
 function showBookList(books, noOfBooks, bookContainer) {
   // check if the books array has some items
   if (books.length > 0) {
-    // Scan through the first 5 books
+    // Scan through the first 'noOfBooks' books
     for (let i = 0; i < books.length; i++) {
       // End looping when passing the first <noOfBooks> items 
       if (i >= noOfBooks) {
