@@ -6,11 +6,11 @@
  * @constructor
  * @param {string} name - The name of the player
  */
-const CardPlayer = function(name) {
+const CardPlayer = function (name) {
   // Create player function here
   this.name = name;
   this.hand = [];
-  this.drawCard = function() {
+  this.drawCard = function () {
     const card = blackjackDeck[Math.floor(Math.random() * 52)];
     this.hand.push(card);
   };
@@ -25,7 +25,7 @@ let player = new CardPlayer('Player');
  * @param {Array} hand - Array of cards
  * @returns {Object} - total points and whether hand isSoft
  */
-const calcPoints = function(hand) {
+const calcPoints = function (hand) {
   let hasAce = false;
   let handScore = 0;
   let isSoft = false;
@@ -50,7 +50,7 @@ const calcPoints = function(hand) {
   };
 };
 
-const dealerShouldDraw = function(dealerHand) {
+const dealerShouldDraw = function (dealerHand) {
   let points = calcPoints(dealerHand).total;
   let isSoft = calcPoints(dealerHand).isSoft;
   if (points < 17 || (points === 17 && isSoft)) {
@@ -64,7 +64,7 @@ const dealerShouldDraw = function(dealerHand) {
  * @param {number} playerScore
  * @param {number} dealerScore
  */
-const determineWinner = function(playerScore, dealerScore) {
+const determineWinner = function (playerScore, dealerScore) {
   if (playerScore > dealerScore) {
     return `Your total of ${playerScore} beat the dealer's total of ${dealerScore}.  You win!`;
   } else if (playerScore < dealerScore) {
@@ -79,7 +79,7 @@ const determineWinner = function(playerScore, dealerScore) {
  * @param {number} count
  * @param {string} dealerCard
  */
-const getMessage = function(count, dealerCard) {
+const getMessage = function (count, dealerCard) {
   return `Dealer showing ${dealerCard.displayVal}, your count is ${count}.  Draw card?`;
 };
 
@@ -87,13 +87,12 @@ const getMessage = function(count, dealerCard) {
  * Logs the player's hand to the console
  * @param {CardPlayer} player
  */
-const showHand = function(player) {
-  let displayHand = player.hand.map(function(card) {
+const showHand = function (player) {
+  let displayHand = player.hand.map(function (card) {
     return card.displayVal;
   });
   console.log(
-    `${player.name}'s hand is ${displayHand.join(', ')} (${
-      calcPoints(player.hand).total
+    `${player.name}'s hand is ${displayHand.join(', ')} (${calcPoints(player.hand).total
     })`
   );
 };
@@ -101,7 +100,7 @@ const showHand = function(player) {
 /**
  * Runs Blackjack Game
  */
-const startGame = function() {
+const startGame = function () {
   player.drawCard();
   dealer.drawCard();
   player.drawCard();
