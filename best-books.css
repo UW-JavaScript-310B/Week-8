@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Source+Sans+Pro&display=swap');
+
+body {
+  background-color: rgb(255, 250, 242);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {
+  margin: 10px 0;
+}
+
+h1, h2 {
+  font-family: 'Roboto Slab', 'Times New Roman', serif;
+}
+
+h1 {
+  font-size: 3.0rem;;
+}
+
+h2 {
+  font-size: 2.2rem;
+}
+
+h4 {
+  color:rgb(100, 100, 100);
+  font-size: 1.2rem;
+  font-weight: 100;
+}
+
+#book-covers {
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+#book-covers img {
+  width: 19%;
+  box-shadow: 0 0 10px 1px rgb(165, 165, 165);
+  margin: 3px 10px;
+  opacity: 0.8;
+}
+
+form {
+  margin-top: 50px;
+}
+
+label {
+  display: inline;
+}
+
+#below-fold {
+  background-color: rgb(238, 238, 238);
+}
+
+#below-fold {
+  text-align: center;
+}
+
+.review {
+  margin-bottom: 30px;
+}
+
+.review img {
+  border: 2px solid rgb(255, 250, 242);
+  border-radius: 40px;
+  width: 80px;
+  opacity: 0.8;
+}
+
+#books-container div {
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+#books-container img {
+  box-shadow: 0 0 10px 1px rgb(165, 165, 165);
+  width: 80%;
+}
+
+footer {
+  margin: 40px 0;
+  text-align: center;
+}
+
+.icons i {
+  font-size: 2rem;
+  margin-right: 10px;
+  opacity: 0.8;
+}

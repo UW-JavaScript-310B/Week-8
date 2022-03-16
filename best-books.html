@@ -1,64 +1,155 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE-edge">
+  <meta name="viewpot" content="width=device-width, initial-scale=1.0">
   <title>Best Books</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="./best-books.css">
+  <script src="https://kit.fontawesome.com/9bfbb90b34.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="container">
-    <div class="row my-4">
-      <div class="col-12">
-        <h1>Best Books</h1>
-      </div>
-    </div>
     <div class="row">
-      <div class="col-md-4">
-        <form id="best-books-form">
-          <div class="form-group mb-2">
-            <label for="year">Year:</label>
-            <input 
-              id="year"
-              name="year" 
-              class="form-control" 
-              type="text" 
-              pattern="\d{4}" 
-              placeholder="2019" />
-          </div>
-          <div class="form-group mb-2">
-            <label for="month">Month:</label>
-            <input 
-              id="month" 
-              name="month" 
-              class="form-control" 
-              type="text" 
-              placeholder="03"
-              pattern="\d{2}"
-               />
-          </div>
-          <div class="form-group mb-2">
-            <label for="date">Date:</label>
-            <input 
-              id="date"
-              name="date" 
-              class="form-control" 
-              type="text" 
-              placeholder="11"
-              pattern="\d{2}"
+      <nav class="navbar navbar-expand-sm navbar-light">
+        <a class="navbar-brand" href="./best-books.html"><img src="./images/searchtimes-logo.png" width="240" height="49" alt="SearchTimes"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="./best-books-about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://github.com/RyanOD">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="row pt-2 pb-5">
+      <div class="col-12 col-lg-6">
+        <h1>Because great literature lasts forever</h1>
+        <h4>Search historic New York Times bestsellers lists for your next great read.</h4>
+        <form class="col-12" id="best-books-form" action="./best-books-results.html">
+          <div class="row form-group mb-2">
+            <div class="col-2 justify-content-center align-self-center">
+              <label for="year">Year</label>
+            </div>
+            <div class="col-8">
+              <input 
+                id="year"
+                name="year" 
+                class="form-control" 
+                type="text" 
+                pattern="\d{4}" 
+                placeholder="2019"
               />
+            </div>
           </div>
-          <div class="form-group mb-2">
-            <input id="submit" class="btn btn-primary" type="submit" value="Get Books" />
+          <div class="row form-group mb-2">
+            <div class="col-2 justify-content-center align-self-center">
+              <label for="month">Month</label>
+            </div>
+            <div class="col-8">
+              <input 
+                id="month" 
+                name="month" 
+                class="form-control" 
+                type="text" 
+                placeholder="03"
+                pattern="\d{2}"
+              />
+            </div>
+          </div>
+          <div class="row form-group mb-2">
+            <div class="col-2 justify-content-center align-self-center">
+              <label for="date">Date</label>
+            </div>
+            <div class="col-8">
+              <input 
+                id="date"
+                name="date" 
+                class="form-control" 
+                type="text" 
+                placeholder="11"
+                pattern="\d{2}"
+              />
+            </div>
+          </div>
+          <div class="row form-group mb-2">
+            <div class="col-2 justify-content-center align-self-center">
+              <label for="date">Format</label>
+            </div>
+            <div class="col-8">
+              <select 
+                id="format"
+                name="format" 
+                class="form-control">
+                <option value="combined-print-and-e-book">Combined Print & E-Book</option>
+                <option value="hardcover">Hardcover</option>
+                <option value="paperback">Paperback</option>
+              </select>
+            </div>
+          </div>
+          <div class="row form-group mb-2">
+            <div class="col-2 justify-content-center align-self-center">
+              <label for="date">Genre</label>
+            </div>
+            <div class="col-8">
+              <select 
+                id="genre"
+                name="genre" 
+                class="form-control">
+                <option value="fiction">Fiction</option>
+                <option value="nonfiction">Nonfiction</option>                
+              </select>
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-8 offset-2">
+              <input id="submit" class="btn btn-primary btn-lg btn-block" type="submit" value="Find Great Books" />
+            </div>
           </div>
         </form>
       </div>
-      <div class="col-md-7 offset-md-1" id="books-container">
-        display books here
-
+      <div id="book-covers" class="col-md-12 col-lg-6 d-none d-lg-inline">
+        <img src="./images/lincoln.jpg" alt="The Lincoln Highway" />
+        <img src="./images/the-four-winds.jpg" alt="The Four Winds" />
+        <img src="./images/dune.jpg" alt="Dune" />
+        <img src="./images/a-tree-grows-in-brooklyn.jpg" alt="A Tree Grows in Brooklyn" />
+        <img src="./images/the-joy-luck-club.jpg" alt="The Joy Luck Club" />
+        <img src="./images/a-wrinkle-in-time.jpg" alt="A Wrinkle in Time" />
+        <img src="./images/the-stranger.jpg" alt="The Stranger" />
+        <img src="./images/harry-potter-and-the-sorcerers-stone.jpg" alt="Harry Potter and the Sorcerer's Stone" />
+        <img src="./images/1984.jpg" alt="1984" />
+        <img src="./images/the-story-of-my-life.jpg" alt="The Story of My Life" />
+        <img src="./images/the-great-gatsby.jpg" alt="The Great Gatsby" />
+        <img src="./images/the-catcher-in-the-rye.jpg" alt="The Catcher in the Rye" />
       </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div id="below-fold" class="row">
+      <div class="col-md-10 offset-1">
+        <h2 class="mt-5 mb-5">What people are saying</h2>
+        <div class="row">
+          <div class="col-12 col-md-4 review">
+           
+          </div>
+          <div class="col-12 col-md-4 review">
+            
+          </div>
+          <div class="col-12 col-md-4 review">
+            
+          </div>
+        </div>
       </div>
+    </div>
+    <footer>
+      <p>Copyright 2022 | All Rights Reserved</p>
+    </footer>
   </div>
 
-  <script src="api-key.js"></script>
-  <script src="best-books.js"></script>
+  <script src="./api-key.js"></script>
+  <script src="./best-books-reviews.js"></script>
 </body>
 </html>

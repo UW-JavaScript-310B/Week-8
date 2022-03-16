@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE-edge">
+  <meta name="viewpot" content="width=device-width, initial-scale=1.0">
+  <title>Best Books</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="./best-books.css">
+  <script src="https://kit.fontawesome.com/9bfbb90b34.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <nav class="navbar navbar-expand-md navbar-light">
+        <a class="navbar-brand" href="./best-books.html"><img src="./images/searchtimes-logo.png" width="240" height="49" alt="SearchTimes"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="./best-books-about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://github.com/RyanOD">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="row pt-2 pb-5">
+      <div class="col-12">
+        <h1>Your NYT best selling books search results</h1>
+        </div>
+      </div>
+        <div id="books-container" class="row"></div>
+      </div>
+    </div>
+    <footer>
+      <p>Copyright 2022 | All Rights Reserved</p>
+    </footer>
+  </div>
+
+  <script src="./api-key.js"></script>
+  <script src="./best-books.js"></script>
+</body>
+</html>
