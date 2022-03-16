@@ -21,18 +21,18 @@ describe("Blackjack Game", () => {
     ];
     it("Should return false if cards = 9, 10", () => {
         let result = dealerShouldDraw(nineTen);
-        expect(false);
+        expect(result).toEqual(false);
     });
     it("Should return true if cards = Ace, 6", () => {
         let result = dealerShouldDraw(sixAce);
-        expect(true);
+        expect(result).toEqual(true);
     });
     it("Should return false if cards = Ace, 6, 10", () => {
         let result = dealerShouldDraw(sixAceTen);
-        expect(false);
+        expect(result).toEqual(false);
     });
     it("Should return true if cards = 2, 4, 2, 5", () => {
         let result = dealerShouldDraw(twoFourTwoFive);
-        expect(true);
+        expect(result).toEqual(true);
     });
-});
+})});
