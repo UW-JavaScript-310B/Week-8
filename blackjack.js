@@ -1,4 +1,5 @@
-const blackjackDeck = getDeck();
+
+//const blackjackDeck = getDeck();
 
 /**
  * Represents a card player (including dealer).
@@ -58,7 +59,6 @@ const dealerShouldDraw = function(dealerHand) {
     return false;
   }
 };
-
 /**
  * Determines the winner if both player and dealer stand
  * @param {number} playerScore
