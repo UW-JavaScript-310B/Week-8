@@ -1,5 +1,5 @@
 describe("Blackjack Game", () => {
-    describe("dealerShouldDraw() function", () => {
+    describe("dealerShouldDraw()", () => {
     let nineTen = [
         { val: 9, displayVal: "9", suit: "hearts" },
         { val: 10, displayVal: "10", suit: "hearts" },
