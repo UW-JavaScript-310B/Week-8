@@ -2,10 +2,18 @@ let bodyEl = document.getElementsByTagName('body')[0];
 let colorVal = 0;
 
 let gHarrison = function () {
-    if (colorVal >= 0) {
+    /**
+     * In Chromium element inspector the rgb values go to 256, but the
+     * console.log code below ends at 256. To get console.log(colorVal) 
+     * to show "255", have to set "if (colorVal <255>)", but then element 
+     * inspector shows "rgb(254, 254, 254)". Since leaving it as-is satisfies
+     * the 1st bullet point in the Homework requirements, it'll stay.
+     */
+    if (colorVal < 256) {
         bodyEl.style.backgroundColor = `rgb(${colorVal}, ${colorVal}, ${colorVal})`;
         colorVal += 1;
         requestAnimationFrame(gHarrison);
+        //console.log(`${colorVal}`); 
     };
 };
 
