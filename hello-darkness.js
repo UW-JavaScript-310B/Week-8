@@ -1,6 +1,6 @@
 let body = document.body;
 let startColorNum = 255;
-const interval = 1000;
+const interval = 500;
 
 let darkenInterval  = setInterval(function() {
     if (startColorNum > 0)
