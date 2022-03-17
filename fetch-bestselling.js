@@ -4,7 +4,7 @@ const baseURL = `https://api.nytimes.com/svc/books/v3/lists/`;
 let srchBtn = document.getElementById('srchBtn');
 let dateField = document.getElementById('date');
 let date = '';
-let apiKey = 'kmSOjlHeXDNExYnuMDuVzI7LUk1QECkO';
+let apiKey = '';
 let url = `${baseURL}${date}/hardcover-fiction.json?api-key=${apiKey}`;
 
 
