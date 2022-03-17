@@ -4,24 +4,22 @@ const baseURL = `https://api.nytimes.com/svc/books/v3/lists/`;
 let srchBtn = document.getElementById('srchBtn');
 let dateField = document.getElementById('date');
 let date = '';
-let apiKey = '';
-let url = `${baseURL}${date}/hardcover-fiction.json?api-key=${apiKey}`;
+let apiKey = 'kmSOjlHeXDNExYnuMDuVzI7LUk1QECkO';
 
 
 const leGrandeFunction = (function(e) {
     e.preventDefault();
     date = dateField.value;
-    console.log(date);
+    //Needed to move url definition from global scope.
+    let url = `${baseURL}${date}/hardcover-fiction.json?api-key=${apiKey}`;
 
     fetch(url)
         .then((data) => {
             return data.json();
         })
         .then((resultsJson) => {
-            // Should have used a loop to generate. Missed opportunity.
-            document.getElementById('result-one-title').innerText = resultsJson.results.books[0].title;
-            document.getElementById('result-one-author').innerText = resultsJson.results.books[0].author;
-            document.getElementById('result-one-descr').innerText = resultsJson.results.books[0].description;
+            //Decided to try the loop after all. Soooo much easier to read.
+            for (let i = 1; i < 6; i++) {
             /**
              * Requirements state "Extra Credit 1 pt: For Bestselling Books, 
              * also display the image for each book". Since all the books are 
@@ -37,28 +35,14 @@ const leGrandeFunction = (function(e) {
              *      }
              * })
              */
-            document.getElementById('result-one-photo').setAttribute('src', resultsJson.results.books[0].book_image);
-
-            document.getElementById('result-two-title').innerText = resultsJson.results.books[1].title;
-            document.getElementById('result-two-author').innerText = resultsJson.results.books[1].author;
-            document.getElementById('result-two-descr').innerText = resultsJson.results.books[1].description;
-            document.getElementById('result-two-photo').setAttribute('src', resultsJson.results.books[1].book_image);
-
-            document.getElementById('result-three-title').innerText = resultsJson.results.books[2].title;
-            document.getElementById('result-three-author').innerText = resultsJson.results.books[2].author;
-            document.getElementById('result-three-descr').innerText = resultsJson.results.books[2].description;
-            document.getElementById('result-three-photo').setAttribute('src', resultsJson.results.books[2].book_image);
-
-            document.getElementById('result-four-title').innerText = resultsJson.results.books[3].title;
-            document.getElementById('result-four-author').innerText = resultsJson.results.books[3].author;
-            document.getElementById('result-four-descr').innerText = resultsJson.results.books[3].description;
-            document.getElementById('result-four-photo').setAttribute('src', resultsJson.results.books[3].book_image);
-
-            document.getElementById('result-five-title').innerText = resultsJson.results.books[4].title;
-            document.getElementById('result-five-author').innerText = resultsJson.results.books[4].author;
-            document.getElementById('result-five-descr').innerText = resultsJson.results.books[4].description;
-            document.getElementById('result-five-photo').setAttribute('src', resultsJson.results.books[4].book_image);
+                document.getElementById(`result-${i}-title`).innerText = resultsJson.results.books[i].title;
+                document.getElementById(`result-${i}-author`).innerText = resultsJson.results.books[i].author;
+                document.getElementById(`result-${i}-descr`).innerText = resultsJson.results.books[i].description;
+                document.getElementById(`result-${i}-photo`).setAttribute('src', resultsJson.results.books[i].book_image);
+            }            
         });
 });
+
 srchBtn.addEventListener("click", leGrandeFunction, true);
+
 });
