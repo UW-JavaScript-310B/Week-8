@@ -39,6 +39,7 @@ const calcPoints = function(hand) {
       handScore += card.val;
     }
   }
+  console.log('HAND SCORE ', handScore)
   if (handScore <= 11 && hasAce) {
     handScore += 10;
     isSoft = true;
@@ -52,6 +53,7 @@ const calcPoints = function(hand) {
 const dealerShouldDraw = function(dealerHand) {
   let points = calcPoints(dealerHand).total;
   let isSoft = calcPoints(dealerHand).isSoft;
+  console.log("from test ", dealerHand, isSoft)
   if (points < 17 || (points === 17 && isSoft)) {
     return true;
   } else {
@@ -132,4 +134,4 @@ const startGame = function() {
 
   return determineWinner(playerScore, dealerScore);
 };
-// console.log(startGame());
+startGame();
