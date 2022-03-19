@@ -17,16 +17,18 @@ formEl.addEventListener("submit", function (e) {
 function buildURL(year, month, date) {
   let DATE = year + "-" + month + "-" + date;
 
-  if (year == "" || month == "" || date == "") {
+  if (!year || !month || !date) {
     DATE = "current";
   }
   // create api-key.js file with const API_KEY="your_api_key" in this same directory to use
-  const BASE_URL = `https://api.nytimes.com/svc/books/v3/lists/${DATE}/hardcover-fiction.json`;
-  const url = `${BASE_URL}?api-key=${API_KEY}`;
-  console.log(url);
-  return url;
+  const BASE_URL = `https://api.nytimes.com/svc/books/v3/lists/`;
+  const ENDPONT = `${DATE}/hardcover-fiction.json`;
+  const URL = `${BASE_URL}${ENDPONT}?api-key=${API_KEY}`;
+  console.log(URL);
+  return URL;
 }
 
+//TODO add logic to provide a message when fetch returns a non 200 response
 function getBookData(url) {
   fetch(url)
     .then(function (data) {
@@ -36,6 +38,9 @@ function getBookData(url) {
       console.log(responseJson);
 
       generateBookTable(responseJson);
+    })
+    .catch(() => {
+      generateTableHeader();
     });
 }
 
@@ -84,8 +89,3 @@ function generateBookTable(responseJson) {
     bookTD3.innerHTML = bookDescription;
   }
 }
-
-// if (article.multimedia.length > 0) {
-//   const imgUrl = `https://www.nytimes.com/${article.multimedia[0].url}`;
-//   document.getElementById("article-img").src = imgUrl;
-// }
