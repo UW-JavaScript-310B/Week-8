@@ -14,8 +14,8 @@ let myPromise = new Promise(function (resolve, reject) {
 
 myPromise
   .then((message) => {
-    console.log(message);
+    console.log("task completed with status of " + message);
   })
   .catch((message) => {
-    console.log(message);
+    console.log("task completed with status of " + message);
   });
