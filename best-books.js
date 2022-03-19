@@ -22,7 +22,6 @@ function buildURL(year, month, date) {
   }
   // create api-key.js file with const API_KEY="your_api_key" in this same directory to use
   const BASE_URL = `https://api.nytimes.com/svc/books/v3/lists/${DATE}/hardcover-fiction.json`;
-
   const url = `${BASE_URL}?api-key=${API_KEY}`;
   console.log(url);
   return url;
@@ -37,15 +36,17 @@ function getBookData(url) {
       console.log(responseJson);
 
       generateBookTable(responseJson);
-      // const mainHeadline = article.headline.main;
-      // console.log(mainHeadline);
-      // document.getElementById("article-title").innerText = mainHeadline;
     });
 }
 
 function generateTableHeader() {
   const bookContainer = document.getElementById("books-container");
+
+  if (document.getElementById("book-table")) {
+    bookContainer.removeChild(document.getElementById("book-table"));
+  }
   const bookTable = document.createElement("table");
+  bookTable.setAttribute("id", "book-table");
   bookContainer.appendChild(bookTable);
   const bookRow = document.createElement("tr");
   bookTable.appendChild(bookRow);
