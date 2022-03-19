@@ -24,3 +24,11 @@ form {
 .show {
   display: block;
 }
+tr:nth-child(even) {
+  background-color: #d6eeee;
+}
+table,
+th,
+td {
+  border: 1px solid black;
+}

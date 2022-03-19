@@ -27,19 +27,43 @@ fetch(url)
   .then(function (responseJson) {
     console.log(responseJson);
 
-    let book = responseJson.results.books[0].title;
-    console.log("book = " + book);
-    const bookContainer = document.getElementById("books-container");
-    const book1 = document.createElement("div");
-    book1.innerHTML = book;
-    bookContainer.appendChild(book1);
-
+    generateBookTable(responseJson);
     const mainHeadline = article.headline.main;
     console.log(mainHeadline);
     document.getElementById("article-title").innerText = mainHeadline;
-
-    // if (article.multimedia.length > 0) {
-    //   const imgUrl = `https://www.nytimes.com/${article.multimedia[0].url}`;
-    //   document.getElementById("article-img").src = imgUrl;
-    // }
   });
+
+function generateBookTable(responseJson) {
+  const bookContainer = document.getElementById("books-container");
+  const bookTable = document.createElement("table");
+  bookContainer.appendChild(bookTable);
+  const bookRow = document.createElement("tr");
+  bookTable.appendChild(bookRow);
+  const bookHeader1 = document.createElement("th");
+  bookTable.appendChild(bookHeader1);
+  bookHeader1.innerHTML = "Name";
+  const bookHeader2 = document.createElement("th");
+  bookTable.appendChild(bookHeader2);
+  bookHeader2.innerHTML = "Author";
+  const bookHeader3 = document.createElement("th");
+  bookTable.appendChild(bookHeader3);
+  bookHeader3.innerHTML = "Description";
+
+  for (let index = 0; index < 5; index++) {
+    const bookRow = document.createElement("tr");
+    bookTable.appendChild(bookRow);
+    const bookTD = document.createElement("td");
+    bookRow.appendChild(bookTD);
+
+    let bookTitle = responseJson.results.books[index].title;
+    let bookAuthor = responseJson.results.books[index].author;
+    let bookDescription = responseJson.results.books[index].description;
+    //const book1 = document.createElement("div");
+    bookTD.innerHTML = bookTitle + " | " + bookAuthor + " | " + bookDescription;
+  }
+}
+
+// if (article.multimedia.length > 0) {
+//   const imgUrl = `https://www.nytimes.com/${article.multimedia[0].url}`;
+//   document.getElementById("article-img").src = imgUrl;
+// }
