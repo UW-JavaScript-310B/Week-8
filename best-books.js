@@ -1,10 +1,3 @@
-// create api-key.js file with const API_KEY="your_api_key" in this same directory to use
-const BASE_URL =
-  "https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json";
-//TODO - you committed your API KEY! Fix this.
-
-const url = `${BASE_URL}?api-key=${API_KEY}`;
-
 const formEl = document.getElementById("best-books-form");
 const yearEl = document.getElementById("year");
 const monthEl = document.getElementById("month");
@@ -17,10 +10,25 @@ formEl.addEventListener("submit", function (e) {
   const month = monthEl.value;
   const date = dateEl.value;
 
-  getBookData();
+  url = buildURL(year, month, date);
+  getBookData(url);
 });
 
-function getBookData() {
+function buildURL(year, month, date) {
+  let DATE = year + "-" + month + "-" + date;
+
+  if (year == "" || month == "" || date == "") {
+    DATE = "current";
+  }
+  // create api-key.js file with const API_KEY="your_api_key" in this same directory to use
+  const BASE_URL = `https://api.nytimes.com/svc/books/v3/lists/${DATE}/hardcover-fiction.json`;
+
+  const url = `${BASE_URL}?api-key=${API_KEY}`;
+  console.log(url);
+  return url;
+}
+
+function getBookData(url) {
   fetch(url)
     .then(function (data) {
       return data.json();
@@ -29,9 +37,9 @@ function getBookData() {
       console.log(responseJson);
 
       generateBookTable(responseJson);
-      const mainHeadline = article.headline.main;
-      console.log(mainHeadline);
-      document.getElementById("article-title").innerText = mainHeadline;
+      // const mainHeadline = article.headline.main;
+      // console.log(mainHeadline);
+      // document.getElementById("article-title").innerText = mainHeadline;
     });
 }
 
