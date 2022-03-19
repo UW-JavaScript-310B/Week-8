@@ -49,3 +49,18 @@ describe("dealeShouldDraw tests", () => {
     expect(response).toEqual(true);
   });
 });
+
+// if (handScore <= 11 && hasAce) {
+//     handScore += 10;
+//     isSoft = true;
+//   }
+
+// const dealerShouldDraw = function(dealerHand) {
+//     let points = calcPoints(dealerHand).total;
+//     let isSoft = calcPoints(dealerHand).isSoft;
+//     if (points < 17 || (points === 17 && isSoft)) {
+//       return true;
+//     } else {
+//       return false;
+//     }
+//   };
