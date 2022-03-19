@@ -33,7 +33,7 @@ fetch(url)
     document.getElementById("article-title").innerText = mainHeadline;
   });
 
-function generateBookTable(responseJson) {
+function generateTableHeader() {
   const bookContainer = document.getElementById("books-container");
   const bookTable = document.createElement("table");
   bookContainer.appendChild(bookTable);
@@ -49,17 +49,28 @@ function generateBookTable(responseJson) {
   bookTable.appendChild(bookHeader3);
   bookHeader3.innerHTML = "Description";
 
+  return bookTable;
+}
+function generateBookTable(responseJson) {
+  const bookTable = generateTableHeader();
+
   for (let index = 0; index < 5; index++) {
     const bookRow = document.createElement("tr");
     bookTable.appendChild(bookRow);
-    const bookTD = document.createElement("td");
-    bookRow.appendChild(bookTD);
+    const bookTD1 = document.createElement("td");
+    bookRow.appendChild(bookTD1);
+    const bookTD2 = document.createElement("td");
+    bookRow.appendChild(bookTD2);
+    const bookTD3 = document.createElement("td");
+    bookRow.appendChild(bookTD3);
 
     let bookTitle = responseJson.results.books[index].title;
     let bookAuthor = responseJson.results.books[index].author;
     let bookDescription = responseJson.results.books[index].description;
-    //const book1 = document.createElement("div");
-    bookTD.innerHTML = bookTitle + " | " + bookAuthor + " | " + bookDescription;
+
+    bookTD1.innerHTML = bookTitle;
+    bookTD2.innerHTML = bookAuthor;
+    bookTD3.innerHTML = bookDescription;
   }
 }
 
