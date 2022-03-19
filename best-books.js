@@ -29,13 +29,17 @@ fetch(url)
 
     let book = responseJson.results.books[0].title;
     console.log("book = " + book);
+    const bookContainer = document.getElementById("books-container");
+    const book1 = document.createElement("div");
+    book1.innerHTML = book;
+    bookContainer.appendChild(book1);
 
     const mainHeadline = article.headline.main;
     console.log(mainHeadline);
     document.getElementById("article-title").innerText = mainHeadline;
 
-    if (article.multimedia.length > 0) {
-      const imgUrl = `https://www.nytimes.com/${article.multimedia[0].url}`;
-      document.getElementById("article-img").src = imgUrl;
-    }
+    // if (article.multimedia.length > 0) {
+    //   const imgUrl = `https://www.nytimes.com/${article.multimedia[0].url}`;
+    //   document.getElementById("article-img").src = imgUrl;
+    // }
   });
