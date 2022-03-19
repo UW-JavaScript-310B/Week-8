@@ -1,7 +1,8 @@
 // create api-key.js file with const API_KEY="your_api_key" in this same directory to use
 const BASE_URL =
   "https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json";
-const API_KEY = "Ta7hDm6AnnzMdHOXkjTT76x6OgLhPoQO";
+//TODO - you committed your API KEY! Fix this.
+
 const url = `${BASE_URL}?api-key=${API_KEY}`;
 
 const formEl = document.getElementById("best-books-form");
@@ -16,22 +17,23 @@ formEl.addEventListener("submit", function (e) {
   const month = monthEl.value;
   const date = dateEl.value;
 
-  // Fetch bestselling books for date and add top 5 to page
+  getBookData();
 });
-console.log(url);
 
-fetch(url)
-  .then(function (data) {
-    return data.json();
-  })
-  .then(function (responseJson) {
-    console.log(responseJson);
+function getBookData() {
+  fetch(url)
+    .then(function (data) {
+      return data.json();
+    })
+    .then(function (responseJson) {
+      console.log(responseJson);
 
-    generateBookTable(responseJson);
-    const mainHeadline = article.headline.main;
-    console.log(mainHeadline);
-    document.getElementById("article-title").innerText = mainHeadline;
-  });
+      generateBookTable(responseJson);
+      const mainHeadline = article.headline.main;
+      console.log(mainHeadline);
+      document.getElementById("article-title").innerText = mainHeadline;
+    });
+}
 
 function generateTableHeader() {
   const bookContainer = document.getElementById("books-container");
