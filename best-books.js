@@ -11,4 +11,35 @@ formEl.addEventListener('submit', function(e) {
   const date = dateEl.value;
 
   // Fetch bestselling books for date and add top 5 to page
+  const BASE_URL = `https://api.nytimes.com/svc/books/v3/lists/overview.json`;
+  const fullDate = `${year}-${month}-${date}`;
+  const url = `${BASE_URL}?bestsellers_date=${fullDate}&api-key=${API_KEY}`;
+
+  fetch(url)
+  .then(function(data) {
+    return data.json()  
+  })
+  .then(function(responseJson) {
+    console.log(responseJson);
+
+    let book = responseJson.results.lists[2].books;
+
+    for (i=0;i<=4;i++){
+      const titleBook = document.createTextNode(`${book[i].title}`);
+      const authorBook = document.createTextNode(`${book[i].author}`);
+      const descriptionBook = document.createTextNode(`${book[i].description}`);
+
+      const newAuth = document.getElementById(`books-container`);
+      // newAuth.appendChild(document.createElement('img',id='book-img'));
+      // document.getElementById(`book-img`).setAttribute('src', book[i].book_image.value); 
+      newAuth.appendChild(titleBook);
+      newAuth.appendChild(document.createElement('br'));
+      newAuth.appendChild(authorBook);
+      newAuth.appendChild(document.createElement('br'));
+      newAuth.appendChild(descriptionBook);
+
+      newAuth.appendChild(document.createElement('br'));
+      newAuth.appendChild(document.createElement('br'));
+    }
+  })
 });
