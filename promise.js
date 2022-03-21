@@ -12,3 +12,30 @@ myPromise
     console.log(number);
   });
 
+let myPromise2 = new Promise( function(resolve, reject)
+{
+  let rnd = Math.random()
+  if (rnd > .5)
+  {
+    resolve()
+  }
+  else
+  {
+    reject()
+  }
+  console.log('complete')
+})
+
+
+const success = () =>
+{
+  console.log("success")
+}
+
+const fail = () =>
+{
+  console.log('fail')
+}
+
+myPromise2.then(success).catch(fail)
+
