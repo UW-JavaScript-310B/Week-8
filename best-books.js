@@ -28,16 +28,20 @@ formEl.addEventListener('submit', function(e) {
       const titleBook = document.createTextNode(`${book[i].title}`);
       const authorBook = document.createTextNode(`${book[i].author}`);
       const descriptionBook = document.createTextNode(`${book[i].description}`);
-
+      const imgBook = new Image(book[i].book_image_width, book[i].book_image_height);
       const newAuth = document.getElementById(`books-container`);
-      // newAuth.appendChild(document.createElement('img',id='book-img'));
-      // document.getElementById(`book-img`).setAttribute('src', book[i].book_image.value); 
+      imgBook.src = book[i].book_image;
+
+      newAuth.appendChild(imgBook);
+      newAuth.appendChild(document.createElement('br'));
+
       newAuth.appendChild(titleBook);
       newAuth.appendChild(document.createElement('br'));
+
       newAuth.appendChild(authorBook);
       newAuth.appendChild(document.createElement('br'));
+      
       newAuth.appendChild(descriptionBook);
-
       newAuth.appendChild(document.createElement('br'));
       newAuth.appendChild(document.createElement('br'));
     }
