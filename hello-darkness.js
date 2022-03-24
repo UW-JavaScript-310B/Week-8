@@ -14,6 +14,5 @@ $(document).ready(function () {
             clearInterval(countdownInterval);
             myFn('white');
         }
-    }, 500
-    );
+    }, 500);
 });
