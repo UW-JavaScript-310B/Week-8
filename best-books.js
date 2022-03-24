@@ -13,7 +13,7 @@ formEl.addEventListener('submit', function(e) {
   // Fetch bestselling books for date and add top 5 to page
   const BASE_URL = `https://api.nytimes.com/svc/books/v3/lists/overview.json`;
   const fullDate = `${year}-${month}-${date}`;
-  const url = `${BASE_URL}?bestsellers_date=${fullDate}&api-key=${API_KEY}`;
+  const url = `${BASE_URL}?published_date=${fullDate}&api-key=${API_KEY}`;
 
   fetch(url)
   .then(function(data) {
