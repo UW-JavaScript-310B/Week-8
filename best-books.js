@@ -27,7 +27,14 @@ $(document).ready(function () {
         booksArray.reverse().forEach((item) => {
           console.log(`${item.title} - ${item.author} - ${item.description}`);
 
-          $('#books-container').after(`<div class='book' style='border:1px solid lightgrey;padding:10px;margin:10px'><h4>Title : ${item.title}</h4><h6>Author : ${item.author}</h6><p>${item.description}</p></div>`);
+          $('#books-container').after(`<div class="card" style="display:grid;grid-template-columns: 15% 85%;padding:10px;margin:20px">` +
+          `<div><img src="${item.book_image}" alt="img-text" style="width:100px"></img></div>` +
+          `<div style="padding:15px 0px"><h5>Title: ${item.title}</h5>` +
+          `<span>Author: ${item.author}</span><br/>` +
+          `<span>Description: ${item.description}</span><br />` +
+          `<span><a href="${item.amazon_product_url}" target="_blank">Buy on Amazon</a></span>` +
+          `</div></div>`);
+
         });
       });
   });
