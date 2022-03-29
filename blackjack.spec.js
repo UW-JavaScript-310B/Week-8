@@ -86,24 +86,4 @@ describe("dealerShouldDraw Test Suite", function () {
 
 
 });
-describe("calPoints", function () {
-
-    it("No Ace Test Case 1", function () {
-        let dealerHand = [
-            {
-                displayVal: '10',
-                val: 10,
-                suite: 'hearts'
-            },
-            {
-                displayVal: 'Ace',
-                val: 11,
-                suite: 'hearts'
-            }
-        ];
-
-        expect(calcPoints('true')).toEqual(false);
-    });
-
-});
 
